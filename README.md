@@ -31,20 +31,52 @@ Focused on cleaning and standardizing the raw **Intern Performance dataset (300 
 
 ---
 
-## Sprint 2: Feature Engineering & EDA Readiness
+## 🚀 Intern Performance Analysis - Sprint 2
 
-Created new metrics to enhance performance analysis and prepare the dataset for exploratory analysis.
-
-### Feature Engineering
-- **Completion Rate:**  
-  `tasks_completed / tasks_assigned`
-- **Internship Duration:**  
-  `end_date - start_date`
-- **Task Speed Index:**  
-  `individual_avg_task_time / departmental_mean_task_time`
-
-### EDA Preparation
-- **Department-wise Aggregation:** Generated summary statistics across departments (Data Science, Development, HR).
-- **Outlier Detection Ready:** Prepared data for histogram and boxplot analysis to identify high and low performers.
+## 📝 Project Overview
+Sprint 2 focused on transforming a raw dataset into a realistic, correlation-driven performance model. The goal was to move beyond random data points to establish meaningful relationships between intern behavior (learning, attendance, reliability) and their overall performance scores.
 
 ---
+
+## 📊 Core KPI Definitions
+
+We have finalized four primary Key Performance Indicators (KPIs) to monitor program success:
+
+| KPI | Definition | Target |
+| :--- | :--- | :--- |
+| **Learning Engagement** | Average hours spent in professional development modules. | `> 30 Hours` |
+| **Reliability Rate** | % of interns with 0 or 1 late submissions per month. | `> 80%` |
+| **High Performer Ratio** | % of the cohort achieving a Performance Score > 7.5. | `> 25%` |
+| **Efficiency Score** | Ratio of tasks completed vs. time spent (Scaled 1–10). | `> 7.0` |
+
+---
+
+## ⚙️ Technical Refinement Logic
+
+The dataset was refined using weighted logic to ensure that high scores are "earned" through consistent professional behavior.
+
+### 1. Performance Score Weighting
+
+The `performance_score` is calculated using:
+
+- **Attendance (25%)** – Base commitment  
+- **Learning Hours (25%)** – Proactive growth  
+- **Reliability (20%)** – Deduction based on `late_submissions`  
+- **Completion (30%)** – `tasks_completed` vs. `tasks_assigned`  
+
+---
+
+### 2. Departmental Benchmarking
+
+- **Data Science** → High-growth profile (Target: 40+ learning hours)  
+- **Development** → Operational profile (Target: high efficiency/speed)  
+- **HR** → Process-oriented profile (Target: high feedback/attendance)  
+
+---
+
+## 🧮 Necessary Formulas (Google Sheets / Excel)
+
+### Data Cleaning (Stipend Fix)
+
+```excel
+=ARRAYFORMULA(AVERAGE(VALUE(SUBSTITUTE(SUBSTITUTE(Sheet1!L:L, "₹", ""), ",", ""))))
