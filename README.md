@@ -33,11 +33,6 @@ Focused on cleaning and standardizing the raw **Intern Performance dataset (300 
 
 ## 🚀 Intern Performance Analysis - Sprint 2
 
-## 📝 Project Overview
-Sprint 2 focused on transforming a raw dataset into a realistic, correlation-driven performance model. The goal was to move beyond random data points to establish meaningful relationships between intern behavior (learning, attendance, reliability) and their overall performance scores.
-
----
-
 ## 📊 Core KPI Definitions
 
 We have finalized four primary Key Performance Indicators (KPIs) to monitor program success:
@@ -73,10 +68,3 @@ The `performance_score` is calculated using:
 - **HR** → Process-oriented profile (Target: high feedback/attendance)  
 
 ---
-
-## 🧮 Necessary Formulas (Google Sheets / Excel)
-
-### Data Cleaning (Stipend Fix)
-
-```excel
-=ARRAYFORMULA(AVERAGE(VALUE(SUBSTITUTE(SUBSTITUTE(Sheet1!L:L, "₹", ""), ",", ""))))
